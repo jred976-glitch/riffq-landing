@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 1. What shows on Google Search -->
+  <title>RiffQ | The Guitar Practice Workstation</title>
+  <meta name="description" content="A browser and desktop practice workstation for guitarists. Loop and drill YouTube videos or local backing tracks with automated circuits and rest gaps.">
+  <link rel="canonical" href="https://riffq.app/">
+
+  <!-- 2. The Browser Tab Icon -->
+  <link rel="icon" type="image/svg+xml" href="riffq-logo.svg">
+
+  <!-- 3. What shows when shared on Socials / Messaging Apps (WhatsApp, Discord, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://riffq.app/">
+  <meta property="og:title" content="RiffQ | The Guitar Practice Workstation">
+  <meta property="og:description" content="Loop and drill YouTube videos or local backing tracks with automated circuits, speed bursts, and forearm rest gaps. Built by a guitarist, for guitarists.">
+  <meta property="og:image" content="https://riffq.app/riffq-preview.png">
+
+  <!-- 4. Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://riffq.app/">
+  <meta name="twitter:title" content="RiffQ | The Guitar Practice Workstation">
+  <meta name="twitter:description" content="Loop and drill YouTube videos or local backing tracks with automated circuits, speed bursts, and forearm rest gaps.">
+  <meta name="twitter:image" content="https://riffq.app/riffq-preview.png">
+
+  <!-- Harmonized Typography: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lemon Squeezy Checkout Script -->
+  <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-in-up { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; transform: translateY(20px); }
+    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    
+    /* Modal Backdrop */
+    .modal-backdrop {
+      background-color: rgba(2, 6, 23, 0.85);
+      backdrop-filter: blur(4px);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-300 font-sans antialiased selection:bg-amber-500 selection:text-black">
+
+  <!-- 1. NAVIGATION -->
+  <nav class="border-b border-slate-800/60 bg-slate-950/90 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="flex items-center gap-3">
+        <!-- Transparent SVG Logo -->
+        <img src="riffq-logo.svg" alt="RiffQ Logo" class="h-6 w-auto">
+      </a>
+      <div class="hidden md:flex gap-6 items-center">
+        <a href="#how-it-works" class="text-sm font-medium hover:text-white transition">How it Works</a>
+        <a href="#features" class="text-sm font-medium hover:text-white transition">Features</a>
+        <a href="#creators" class="text-sm font-medium text-amber-500 hover:text-amber-400 transition">For Creators</a>
+        <a href="#pricing" class="text-sm font-medium hover:text-white transition">Pricing</a>
+        <a href="#faq" class="text-sm font-medium hover:text-white transition">FAQ</a>
+      </div>
+      <div>
+        <a href="https://app.riffq.app" class="bg-amber-500 hover:bg-amber-400 text-slate-950 text-sm font-extrabold px-5 py-2 rounded-lg transition shadow-lg shadow-amber-500/20">Launch Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 2. HERO SECTION -->
+  <section class="max-w-5xl mx-auto px-6 pt-24 pb-12 text-center fade-in-up">
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight mb-6 tracking-tight">
+      I got tired of fighting with YouTube to practice.<br class="hidden sm:inline">
+      <span class="text-amber-500">So I built this.</span>
+    </h1>
+    <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed font-normal">
+      RiffQ is a browser and desktop practice workstation. Loop and drill YouTube videos or your own local backing tracks, build automated practice circuits, and get out of your way so you can actually play.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a href="https://app.riffq.app" class="bg-amber-500 hover:bg-amber-400 text-slate-950 text-lg font-black px-8 py-3 rounded-xl transition shadow-xl shadow-amber-500/20 flex items-center justify-center gap-2">
+        ▶ Launch the App (Free)
+      </a>
+      <a href="#story" class="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 text-lg font-bold px-8 py-3 rounded-xl transition flex items-center justify-center">
+        Read the Story
+      </a>
+    </div>
+    <p class="text-xs text-slate-500 mt-4 font-mono uppercase tracking-widest">No account required to start playing.</p>
+  </section>
+
+  <!-- 3. APP PREVIEW FRAME -->
+  <div class="my-8 flex justify-center px-6 fade-in-up delay-1">
+    <div class="rounded-xl overflow-hidden shadow-2xl border border-slate-700 bg-slate-900 max-w-5xl w-full">
+      <div class="bg-slate-800 px-4 py-2 flex items-center space-x-2 border-b border-slate-700">
+        <div class="w-3 h-3 rounded-full bg-rose-500"></div>
+        <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+        <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+        <span class="text-xs text-slate-400 ml-2 font-mono">app.riffq.app</span>
+      </div>
+      <img src="riffq.png" alt="RiffQ Music Practice Workstation Preview" class="w-full h-auto block bg-black min-h-[300px]">
+    </div>
+  </div>
+
+  <!-- 4. HOW IT WORKS -->
+  <section id="how-it-works" class="py-20 bg-slate-900/30 border-y border-slate-800/50 mt-12 fade-in-up delay-2">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-black text-white mb-12 text-center tracking-tight">Stop clicking. Start playing.</h2>
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div class="flex flex-col items-center">
+          <div class="w-16 h-16 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center text-3xl mb-4 shadow-lg">1️⃣</div>
+          <h3 class="text-xl font-bold text-white mb-2">Drop in your media</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Paste any YouTube URL or drag in your own audio tracks and backing files directly into the browser.</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-16 h-16 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center text-3xl mb-4 shadow-lg">2️⃣</div>
+          <h3 class="text-xl font-bold text-white mb-2">Set loops & speeds</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Drop your A & B markers. Queue up multiple licks, adjust the playback speed, and add a metronome block.</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-16 h-16 rounded-2xl bg-amber-500 flex items-center justify-center text-slate-950 text-3xl mb-4 shadow-lg shadow-amber-500/20">3️⃣</div>
+          <h3 class="text-xl font-bold text-white mb-2">Hit start & play</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">RiffQ automates the entire circuit, manages your rest times, and tracks your reps so you don't have to touch the mouse.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. BACKSTORY -->
+  <section id="story" class="bg-slate-900 border-b border-slate-800 py-24">
+    <div class="max-w-3xl mx-auto px-6 text-center md:text-left">
+      <h2 class="text-3xl md:text-4xl font-black text-white mb-6 tracking-tight">Built out of pure frustration.</h2>
+      <div class="space-y-6 text-slate-300 text-lg leading-relaxed">
+        <p>I just wanted to loop a 5-second solo section on a YouTube video and gradually build up the speed without taking my hands off the fretboard every ten seconds.</p>
+        <p>Existing tools were either too clunky, bloated, or locked behind expensive monthly subscriptions. I built RiffQ to be the exact practice workstation I needed for my own playing.</p>
+        <p>Whether I'm tackling fast riffs and solo sections that I'm struggling with, gradually building them up to full speed, looping specific parts of a solo, or just looping entire songs from start to finish as I learn them, RiffQ gets out of the way. It automates the annoying parts of practice—managing loop transitions, drill queues, and timing your rest gaps—so you can focus entirely on the reps.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FEATURES GRID -->
+  <section id="features" class="max-w-6xl mx-auto px-6 py-24">
+    <h2 class="text-3xl font-black text-white mb-12 text-center tracking-tight">Everything you need to master your riffs.</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-slate-900/50 border border-slate-800 p-8 rounded-2xl">
+        <div class="text-3xl mb-4">🔁</div>
+        <h3 class="text-xl font-bold text-white mb-3">Dual-Engine Looper</h3>
+        <p class="text-slate-400 leading-relaxed">Paste a YouTube link or drag in your own backing tracks and audio files. Set your A and B markers with precision. Hit play. It's that simple.</p>
+      </div>
+      <div class="bg-slate-900/50 border border-slate-800 p-8 rounded-2xl">
+        <div class="text-3xl mb-4">⚡</div>
+        <h3 class="text-xl font-bold text-white mb-3">Automated Practice Circuits</h3>
+        <p class="text-slate-400 leading-relaxed">String multiple loops together into a single routine. Set your reps, dial in your custom speeds, and let the app auto-advance you through your workout.</p>
+      </div>
+      <div class="bg-slate-900/50 border border-slate-800 p-8 rounded-2xl">
+        <div class="text-3xl mb-4">⏱️</div>
+        <h3 class="text-xl font-bold text-white mb-3">Built-in Forearm Rests</h3>
+        <p class="text-slate-400 leading-relaxed">Don't blow out your wrists. RiffQ forces a customizable countdown timer between intense drill blocks so you can shake your arms out.</p>
+      </div>
+      <div class="bg-slate-900/50 border border-slate-800 p-8 rounded-2xl">
+        <div class="text-3xl mb-4">📈</div>
+        <h3 class="text-xl font-bold text-white mb-3">Speed-Burst Metronome</h3>
+        <p class="text-slate-400 leading-relaxed">A built-in metronome that automatically bumps the BPM after a set number of bars. Push your limits without stopping to turn a dial.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FOR CREATORS / TEACHERS -->
+  <section id="creators" class="bg-amber-500 py-20 relative overflow-hidden">
+    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-amber-400/50 blur-3xl pointer-events-none"></div>
+    <div class="max-w-5xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl md:text-5xl font-black text-slate-950 mb-6 leading-tight tracking-tight">Bundle lessons for your students.</h2>
+        <p class="text-slate-900 font-medium text-lg mb-6 leading-relaxed">
+          Are you a guitar teacher or YouTube creator? RiffQ lets you build masterclass routines, set up all the loops, speeds, and rest gaps, and export them as a single <span class="font-mono bg-slate-950 text-amber-400 px-2 py-0.5 rounded text-sm font-bold">.riffq</span> file.
+        </p>
+        <p class="text-slate-900 font-medium text-lg mb-6 leading-relaxed">
+          Upload that file to Patreon or drop it in your video description. Your students can load it into the free demo and start practicing your exact lesson instantly.
+        </p>
+        <a href="https://app.riffq.app" class="inline-block bg-slate-950 hover:bg-slate-800 text-white font-black px-8 py-3 rounded-xl transition shadow-xl mb-4">Try it out in the App</a>
+        
+        <!-- Educator Footnote -->
+        <p class="text-xs text-slate-950/80 leading-relaxed font-medium">
+          * Note for educators: Students can load and practice .riffq lesson files in the Free Demo without the 15-second loop cutoff. Advanced controls—such as custom speed changes below 100%, queues beyond 3 items, and creating new .riffq files—require a Pro license.
+        </p>
+      </div>
+      <div class="bg-slate-950 border-4 border-slate-900 rounded-2xl p-6 shadow-2xl rotate-2">
+        <div class="flex items-center gap-2 mb-4 border-b border-slate-800 pb-4">
+          <div class="text-2xl">📂</div>
+          <div>
+            <div class="text-white font-bold font-mono text-sm">sweep_picking_drill_1.riffq</div>
+            <div class="text-slate-500 text-xs font-mono">1.2 MB • Routine File</div>
+          </div>
+        </div>
+        <div class="space-y-3">
+          <div class="bg-slate-900 rounded p-2 text-xs flex justify-between"><span class="text-white">Lick 1 (85%)</span><span class="text-amber-500 font-mono font-bold">5x REPS</span></div>
+          <div class="bg-slate-900 rounded p-2 text-xs flex justify-between"><span class="text-white">Metronome Burst</span><span class="text-emerald-400 font-mono font-bold">120 → 140 BPM</span></div>
+          <div class="bg-slate-900 rounded p-2 text-xs flex justify-between"><span class="text-white">Lick 2 (100%)</span><span class="text-amber-500 font-mono font-bold">5x REPS</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. PRICING SECTION -->
+  <section id="pricing" class="bg-black py-24 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-black text-white mb-4 tracking-tight">Honest pricing. Choose your setup.</h2>
+        <p class="text-xl text-slate-400">Web access, standalone desktop app, or get both bundled together.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        
+        <!-- 1. Demo Tier -->
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl font-bold text-white mb-1">Free Demo</h3>
+            <div class="text-3xl font-black text-slate-500 mb-4">$0</div>
+            <p class="text-slate-400 text-sm mb-6 leading-relaxed">Test drive the engine or load lesson files sent by your teacher.</p>
+            <ul class="space-y-3 mb-6 text-xs text-slate-300">
+              <li class="flex items-start gap-2"><span>✅</span> <span>Load YouTube or local audio tracks</span></li>
+              <li class="flex items-start gap-2"><span>✅</span> <span>Import & play creator <span class="font-mono text-amber-500">.riffq</span> files</span></li>
+              <li class="flex items-start gap-2"><span>✅</span> <span>Unlimited loop length on <span class="font-mono text-amber-500">.riffq</span> imports</span></li>
+              <li class="flex items-start gap-2"><span>⚠️</span> <span class="text-slate-400">15s manual loop cap</span></li>
+              <li class="flex items-start gap-2"><span>⚠️</span> <span class="text-slate-400">Queue limited to 3 items</span></li>
+              <li class="flex items-start gap-2"><span>⚠️</span> <span class="text-slate-400">Speed locked to 100%</span></li>
+              <li class="flex items-start gap-2"><span>⚠️</span> <span class="text-slate-400">Max 2 reps per drill</span></li>
+            </ul>
+          </div>
+          <a href="https://app.riffq.app" class="w-full block text-center bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl transition border border-slate-700 text-sm">Launch Demo</a>
+        </div>
+
+        <!-- 2. Web Version Tier -->
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl font-bold text-white mb-1">Web Version</h3>
+            <div class="text-3xl font-black text-amber-500 mb-4">$29 <span class="text-sm text-slate-400 font-normal">one-time</span></div>
+            <p class="text-slate-400 text-sm mb-6 leading-relaxed">The fully unlocked workstation hosted on <span class="font-mono text-slate-300 text-xs">web.riffq.app</span>.</p>
+            <ul class="space-y-3 mb-6 text-xs text-slate-300">
+              <li class="flex items-start gap-2"><span>🔓</span> <strong>Full YouTube & local audio support</strong></li>
+              <li class="flex items-start gap-2"><span>🔓</span> <strong>Unlimited loop lengths</strong></li>
+              <li class="flex items-start gap-2"><span>🔓</span> <strong>Practice queues up to 50 items</strong></li>
+              <li class="flex items-start gap-2"><span>🔓</span> <strong>Continuous speed manipulation (0.5x–1.25x)</strong></li>
+              <li class="flex items-start gap-2"><span>🔓</span> <strong>Speed-Burst Metronome unlocked</strong></li>
+              <li class="flex items-start gap-2"><span>🔓</span> <strong>Export & share custom <span class="font-mono text-amber-500">.riffq</span> files</strong></li>
+              <p class="text-[11px] text-slate-500 mt-3 pt-3 border-t border-slate-800/80">
+  💡 Pairs best with a YouTube Premium account for completely ad-free practice drills.
+</p>
+
+
+            </ul>
+          </div>
+          <a href="YOUR_LEMON_SQUEEZY_WEB_URL" class="lemonsqueezy-button w-full block text-center bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl transition border border-slate-700 text-sm">Get Web Pro</a>
+        </div>
+
+        <!-- 3. Desktop App Tier -->
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl font-bold text-white mb-1">Desktop App</h3>
+            <div class="text-3xl font-black text-amber-500 mb-4">$29 <span class="text-sm text-slate-400 font-normal">one-time</span></div>
+            <p class="text-slate-400 text-sm mb-6 leading-relaxed">The standalone offline desktop application for Mac & Windows.</p>
+            <ul class="space-y-3 mb-6 text-xs text-slate-300">
+              <li class="flex items-start gap-2"><span>💻</span> <strong>Standalone offline application</strong></li>
+              <li class="flex items-start gap-2"><span>⚡</span> <strong>Native low-latency performance</strong></li>
+              <li class="flex items-start gap-2"><span>🔓</span> <strong>Queues up to 50 items & unlimited loops</strong></li>
+              <li class="flex items-start gap-2"><span>🔓</span> <strong>Full speed controls & metronome</strong></li>
+              <li class="flex items-start gap-2"><span>🔓</span> <strong>Export & share <span class="font-mono text-amber-500">.riffq</span> routines</strong></li>
+              <li class="flex items-start gap-2"><span class="text-amber-500">⚠️</span> <strong class="text-amber-400">Local audio/video only (No YouTube)</strong></li>
+            </ul>
+          </div>
+          <a href="YOUR_LEMON_SQUEEZY_DESKTOP_URL" class="lemonsqueezy-button w-full block text-center bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl transition border border-slate-700 text-sm">Get Desktop App</a>
+        </div>
+
+        <!-- 4. All-Access Bundle -->
+        <div class="bg-slate-900 border-2 border-amber-500 rounded-3xl p-6 flex flex-col justify-between relative shadow-2xl shadow-amber-500/10 lg:-translate-y-3">
+          <div class="absolute top-0 right-6 -translate-y-1/2 bg-amber-500 text-slate-950 text-[10px] font-black uppercase tracking-widest px-2.5 py-0.5 rounded-full">Best Value</div>
+          <div>
+            <h3 class="text-xl font-bold text-white mb-1">All-Access Bundle</h3>
+            <div class="text-3xl font-black text-amber-500 mb-4">$39 <span class="text-sm text-slate-400 font-normal">one-time</span></div>
+            <p class="text-slate-300 text-sm mb-6 leading-relaxed">The complete practice toolkit. Get both the Web version and Desktop App.</p>
+            <ul class="space-y-3 mb-6 text-xs text-slate-200">
+              <li class="flex items-start gap-2"><span>✨</span> <strong>Includes Web Version (web.riffq.app)</strong></li>
+              <li class="flex items-start gap-2"><span>▶</span> <strong>Full YouTube streaming on Web Pro</strong></li>
+              <li class="flex items-start gap-2"><span>💻</span> <strong>Includes Standalone Desktop App (Mac/PC)</strong></li>
+              <li class="flex items-start gap-2"><span>🔓</span> <strong>50-item queues & all features unlocked</strong></li>
+              <li class="flex items-start gap-2"><span>🚀</span> <strong>Lifetime updates for all platforms</strong></li>
+            </ul>
+          </div>
+          <a href="YOUR_LEMON_SQUEEZY_BUNDLE_URL" class="lemonsqueezy-button w-full block text-center bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold py-2.5 rounded-xl transition shadow-lg shadow-amber-500/25 text-sm">Get the Bundle</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FAQ SECTION -->
+  <section id="faq" class="max-w-3xl mx-auto px-6 py-24">
+    <h2 class="text-3xl font-black text-white mb-12 text-center tracking-tight">Frequently Asked Questions</h2>
+    
+    <div class="space-y-4">
+      <!-- FAQ 1 -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+        <button class="w-full flex justify-between items-center p-5 text-left hover:bg-slate-850 transition" onclick="toggleFaq(this)">
+          <span class="font-bold text-white">Is this a subscription?</span>
+          <span class="text-slate-400 text-xl font-mono">+</span>
+        </button>
+        <div class="p-5 pt-0 text-slate-400 text-sm hidden border-t border-slate-800/50 mt-1 leading-relaxed">
+          No. RiffQ operates on a strict pay-once, own-it-forever model. No monthly recurring fees.
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+        <button class="w-full flex justify-between items-center p-5 text-left hover:bg-slate-850 transition" onclick="toggleFaq(this)">
+          <span class="font-bold text-white">Does the Desktop App support YouTube videos?</span>
+          <span class="text-slate-400 text-xl font-mono">+</span>
+        </button>
+        <div class="p-5 pt-0 text-slate-400 text-sm hidden border-t border-slate-800/50 mt-1 leading-relaxed">
+          No. The standalone Desktop App is engineered exclusively as an offline audio workstation for local files, stems, and backing tracks on your machine. If you want to practice directly with YouTube videos, select the <strong>Web Pro</strong> version (hosted at web.riffq.app) or grab the <strong>All-Access Bundle</strong>, which includes both platforms.
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+        <button class="w-full flex justify-between items-center p-5 text-left hover:bg-slate-850 transition" onclick="toggleFaq(this)">
+          <span class="font-bold text-white">Can my students use the Free Demo to play my .riffq lesson files?</span>
+          <span class="text-slate-400 text-xl font-mono">+</span>
+        </button>
+        <div class="p-5 pt-0 text-slate-400 text-sm hidden border-t border-slate-800/50 mt-1 leading-relaxed">
+          Yes! When loading an imported .riffq file into the Free Demo, the 15-second loop restriction is bypassed so full phrases play as you designed them. However, demo queues remain capped at 3 items, speed is locked to 100%, and routines run a maximum of 2 reps. Upgrading to Pro removes all limits.
+        </div>
+      </div>
+
+           <!-- FAQ 4 -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+        <button class="w-full flex justify-between items-center p-5 text-left hover:bg-slate-850 transition" onclick="toggleFaq(this)">
+          <span class="font-bold text-white">How does RiffQ handle YouTube ads?</span>
+          <span class="text-slate-400 text-xl font-mono">+</span>
+        </button>
+        <div class="p-5 pt-0 text-slate-400 text-sm hidden border-t border-slate-800/50 mt-1 leading-relaxed">
+          <p class="mb-2">RiffQ embeds the official YouTube player, so standard ads will display unless your browser is logged into an active <strong>YouTube Premium</strong> account.</p>
+          <p class="mb-2"><strong>💡 Pro-Tip for Seamless Practice:</strong> While a YouTube Premium subscription is not required, practicing while signed into a Premium account delivers an uninterrupted, completely ad-free flow between loops and circuits.</p>
+          <p>If you don't have Premium, don't worry: our interface safely remembers your exact markers and queue state even if an ad plays, so you never lose your place in your routine.</p>
+        </div>
+      </div>
+
+
+
+      <!-- FAQ 5 -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+        <button class="w-full flex justify-between items-center p-5 text-left hover:bg-slate-850 transition" onclick="toggleFaq(this)">
+          <span class="font-bold text-white">Why do I have to re-link local audio files when opening a .riffq file?</span>
+          <span class="text-slate-400 text-xl font-mono">+</span>
+        </button>
+        <div class="p-5 pt-0 text-slate-400 text-sm hidden border-t border-slate-800/50 mt-1 leading-relaxed">
+          For your safety, modern web browsers operate in a strict security sandbox and cannot read arbitrary files from your local drive without user permission. When you load a routine that utilizes a local file, simply click to confirm and authorize playback. Keeping your audio files in the same folder as your .riffq routine makes this instant.
+        </div>
+      </div>
+
+      <!-- FAQ 6 -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+        <button class="w-full flex justify-between items-center p-5 text-left hover:bg-slate-850 transition" onclick="toggleFaq(this)">
+          <span class="font-bold text-white">Does it work on mobile or tablets?</span>
+          <span class="text-slate-400 text-xl font-mono">+</span>
+        </button>
+        <div class="p-5 pt-0 text-slate-400 text-sm hidden border-t border-slate-800/50 mt-1 leading-relaxed">
+          RiffQ is designed as a desktop and laptop workstation for structured practice sessions. While the web interface loads on modern tablets, keyboard hotkeys and desktop mouse precision provide the intended experience.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 pt-12 pb-8">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
+      <div>
+        <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
+          <img src="riffq-logo.svg" alt="RiffQ Logo" class="h-6 w-auto">
+        </div>
+        <p class="text-slate-500 text-sm leading-relaxed">Built by a musician, for musicians.<br>The guitar practice workstation.</p>
+        <p class="text-slate-500 text-xs mt-3 leading-relaxed">Payments and orders are securely processed by Lemon Squeezy, our Merchant of Record.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-4">System Requirements</h4>
+        <ul class="text-slate-500 text-sm space-y-2">
+          <li><strong>Web:</strong> Chrome, Edge, Brave, or Firefox.</li>
+          <li><strong>Desktop:</strong> macOS 12+ or Windows 10+.</li>
+          <li><strong>Audio:</strong> Standard system output.</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-4">Legal & Support</h4>
+        <ul class="text-slate-500 text-sm space-y-2">
+          <li><button onclick="openModal('termsModal')" class="hover:text-amber-500 transition">Terms of Service</button></li>
+          <li><button onclick="openModal('privacyModal')" class="hover:text-amber-500 transition">Privacy Policy</button></li>
+          <li><button onclick="openModal('refundModal')" class="hover:text-amber-500 transition">Refund Policy</button></li>
+          <li><a href="mailto:riffqapp@gmail.com" class="hover:text-amber-500 transition">Contact: riffqapp@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center border-t border-slate-800/50 pt-8">
+      <p class="text-slate-600 text-xs font-mono">© 2026 RiffQ Audio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ==================== LEGAL MODALS ==================== -->
+
+  <!-- Terms Modal -->
+  <div id="termsModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl">
+      <div class="p-6 border-b border-slate-800 flex justify-between items-center">
+        <h3 class="text-xl font-bold text-white">Terms of Service</h3>
+        <button onclick="closeModal('termsModal')" class="text-slate-400 hover:text-white text-2xl font-mono">&times;</button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-4 text-sm text-slate-300 leading-relaxed">
+        <p class="text-xs text-slate-500 uppercase font-mono">Last Updated: October 2026</p>
+        <h4 class="font-bold text-white">1. Overview & Agreement</h4>
+        <p>These Terms of Service ("Terms") govern your access to and use of RiffQ ("Software", "Service"), provided by RiffQ Audio ("we", "us", or "our"). By purchasing a license or accessing RiffQ, you agree to be bound by these Terms.</p>
+        <h4 class="font-bold text-white">2. License Grant & Restrictions</h4>
+        <p>Upon purchase of a lifetime license, you are granted a non-exclusive, non-transferable, revocable license to access and use RiffQ across your personal compatible devices. You agree not to:</p>
+        <ul class="list-disc pl-5 space-y-1 text-slate-400">
+          <li>Share, publish, resell, or distribute your private license key.</li>
+          <li>Decompile, reverse engineer, or attempt to extract the source code of the Software.</li>
+          <li>Use the Software to build a competing practice or audio playback application.</li>
+        </ul>
+        <p>We reserve the right to revoke or deactivate license keys that are found publicly exposed or abused in breach of these Terms.</p>
+        <h4 class="font-bold text-white">3. Third-Party Platforms & Content Disclaimer</h4>
+        <p><strong>YouTube:</strong> RiffQ is an independent practice tool utilizing the standard YouTube IFrame Player API. RiffQ Audio is not affiliated with, endorsed by, sponsored by, or partner to YouTube, Google LLC, or Alphabet Inc.</p>
+        <p><strong>User Media:</strong> Users are solely responsible for ensuring they possess the appropriate rights and permissions to play, loop, or practice with any audio or video content loaded into the application.</p>
+        <h4 class="font-bold text-white">4. "As-Is" Warranty & Limitation of Liability</h4>
+        <p>RiffQ is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, whether express or implied. To the maximum extent permitted by applicable law, RiffQ Audio shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your access to or inability to use the Software.</p>
+        <h4 class="font-bold text-white">5. Contact</h4>
+        <p>For questions regarding these Terms, contact us at <a href="mailto:riffqapp@gmail.com" class="text-amber-500 underline">riffqapp@gmail.com</a>.</p>
+      </div>
+      <div class="p-4 border-t border-slate-800 text-right">
+        <button onclick="closeModal('termsModal')" class="bg-slate-800 hover:bg-slate-700 text-white px-5 py-2 rounded-lg text-sm font-bold transition">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Modal -->
+  <div id="privacyModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl">
+      <div class="p-6 border-b border-slate-800 flex justify-between items-center">
+        <h3 class="text-xl font-bold text-white">Privacy Policy</h3>
+        <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-white text-2xl font-mono">&times;</button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-4 text-sm text-slate-300 leading-relaxed">
+        <p class="text-xs text-slate-500 uppercase font-mono">Last Updated: October 2026</p>
+        <h4 class="font-bold text-white">1. Introduction</h4>
+        <p>This Privacy Policy outlines how RiffQ Audio collects, uses, and safeguards information when you use our web practice application and website.</p>
+        <h4 class="font-bold text-white">2. Payments & Financial Information</h4>
+        <p>All payments, invoicing, and tax collections are processed directly by our Merchant of Record, Lemon Squeezy, LLC. We do not collect, process, or store your credit card numbers, bank account information, or billing street addresses on our servers.</p>
+        <h4 class="font-bold text-white">3. Local Media Files & Privacy</h4>
+        <p>RiffQ processes your local media (such as MP3, WAV, and audio stems) entirely on your device via standard client-side browser APIs (Blob and URL.createObjectURL). Your personal audio files are never uploaded, stored, or transmitted to any servers.</p>
+        <h4 class="font-bold text-white">4. License Key Verification</h4>
+        <p>When you enter your license key to unlock Pro features, the app communicates with Lemon Squeezy’s licensing API strictly to verify that the key is valid and active. No personal practice files or routine data are attached to this license check.</p>
+        <h4 class="font-bold text-white">5. Local Storage</h4>
+        <p>RiffQ uses your browser's local storage solely to remember your license state and practice preferences (marker points, playback speed). This data remains exclusively on your device.</p>
+        <h4 class="font-bold text-white">6. Contact</h4>
+        <p>For privacy inquiries or data requests, contact <a href="mailto:riffqapp@gmail.com" class="text-amber-500 underline">riffqapp@gmail.com</a>.</p>
+      </div>
+      <div class="p-4 border-t border-slate-800 text-right">
+        <button onclick="closeModal('privacyModal')" class="bg-slate-800 hover:bg-slate-700 text-white px-5 py-2 rounded-lg text-sm font-bold transition">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Refund Modal -->
+  <div id="refundModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl">
+      <div class="p-6 border-b border-slate-800 flex justify-between items-center">
+        <h3 class="text-xl font-bold text-white">Refund Policy</h3>
+        <button onclick="closeModal('refundModal')" class="text-slate-400 hover:text-white text-2xl font-mono">&times;</button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-4 text-sm text-slate-300 leading-relaxed">
+        <p class="text-xs text-slate-500 uppercase font-mono">Last Updated: October 2026</p>
+        <p>We want you to be completely satisfied with RiffQ. Because it is a digital software product:</p>
+        <h4 class="font-bold text-white">14-Day Money-Back Guarantee</h4>
+        <p>If RiffQ does not perform as expected, or if you run into technical compatibility issues with your browser or audio setup that we cannot resolve, you are eligible for a full refund within 14 days of your purchase date.</p>
+        <h4 class="font-bold text-white">How to Request a Refund</h4>
+        <p>Email <a href="mailto:riffqapp@gmail.com" class="text-amber-500 underline">riffqapp@gmail.com</a> with your order email and license key. Once verified, your refund will be processed promptly through Lemon Squeezy back to your original payment method.</p>
+        <h4 class="font-bold text-white">License Revocation</h4>
+        <p>Upon completion of a refund, the associated license key will be permanently deactivated.</p>
+      </div>
+      <div class="p-4 border-t border-slate-800 text-right">
+        <button onclick="closeModal('refundModal')" class="bg-slate-800 hover:bg-slate-700 text-white px-5 py-2 rounded-lg text-sm font-bold transition">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for Modals & FAQ -->
+  <script>
+    // FAQ Accordion
+    function toggleFaq(button) {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('span:last-child');
+      const isHidden = content.classList.contains('hidden');
+      
+      content.classList.toggle('hidden');
+      icon.textContent = isHidden ? '−' : '+';
+    }
+
+    // Modal Control
+    function openModal(modalId) {
+      document.getElementById(modalId).classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // Close on outside click
+    window.addEventListener('click', function(e) {
+      ['termsModal', 'privacyModal', 'refundModal'].forEach(id => {
+        const modal = document.getElementById(id);
+        if (e.target === modal) {
+          closeModal(id);
+        }
+      });
+    });
+
+    // Close on Escape key
+    window.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        ['termsModal', 'privacyModal', 'refundModal'].forEach(id => {
+          closeModal(id);
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
+
