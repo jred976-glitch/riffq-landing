@@ -207,7 +207,7 @@
         <p class="text-slate-400 leading-relaxed">A built-in metronome that automatically bumps the BPM after a set number of bars. Push your limits without stopping to turn a dial.</p>
       </div>
       <div class="bg-slate-900/50 border border-slate-800 p-8 rounded-2xl md:col-span-2 lg:col-span-2">
-        <div class="text-3xl mb-4">🎸</div>
+        <div class="text-3xl mb-4 tracking-widest">🎸 🎹 🥁</div>
         <h3 class="text-xl font-bold text-white mb-3">Interactive Practice Tools Studio</h3>
         <p class="text-slate-400 leading-relaxed mb-6">Access built-in algorithmic visualizers including Guitar/Bass fretboard scale trainers, chord quality references, piano independence drills, and drum rudiment grids that link directly into your metronome-synced circuits.</p>
         
@@ -356,7 +356,7 @@
               <li class="flex items-start gap-2"><span class="text-amber-500">⚠️</span> <strong class="text-amber-400">Local audio/video only (No YouTube)</strong></li>
             </ul>
           </div>
-          <a href="https://demo.riffq.app" class="w-full block text-center bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl transition border border-slate-700 text-sm">Get Desktop App</a>
+          <a href="https://demo.riffq.app" class="w-full block text-center bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold py-2.5 rounded-xl transition shadow-md shadow-amber-500/20 text-sm">Get Desktop App</a>
         </div>
 
         <!-- 3. Web Version Tier -->
@@ -442,7 +442,7 @@
           <span class="text-slate-400 text-xl font-mono">+</span>
         </button>
         <div class="p-5 pt-0 text-slate-400 text-sm hidden border-t border-slate-800/50 mt-1 leading-relaxed">
-          <p class="mb-3"><strong class="text-white">No.</strong> The desktop version and the web version use different file systems that are not compatible with each other. This is due to one being an offline native player (<code class="font-mono text-amber-400 text-xs">.riffqdesk</code>) and the other an online browser player (<code class="font-mono text-amber-400 text-xs">.riffq</code>).</p>
+          <p class="mb-3">Currently, <strong class="text-white">no.</strong> The desktop version and the web version use different file systems. However, as a solo developer, <strong class="text-amber-400">I am actively working on an update to make them fully cross-compatible</strong> in the near future.</p>
           <p class="text-xs text-slate-300 bg-slate-950 border border-slate-800 p-3 rounded-lg">
             🛡️ <strong>Note on sharing:</strong> Both routine formats are lightweight text configuration files containing only public URLs and timestamps. They never host, rip, or distribute copyrighted media, making them completely safe and legal to share with friends or students.
           </p>
@@ -535,13 +535,13 @@
       <!-- FAQ 10: Mobile & Tool Sizing -->
       <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
         <button class="w-full flex justify-between items-center p-5 text-left hover:bg-slate-850 transition" onclick="toggleFaq(this)">
-          <span class="font-bold text-white">Why do the advanced practice tools lock on certain screens or laptops?</span>
+          <span class="font-bold text-white">Why do the visuals not work?</span>
           <span class="text-slate-400 text-xl font-mono">+</span>
         </button>
         <div class="p-5 pt-0 text-slate-400 text-sm hidden border-t border-slate-800/50 mt-1 leading-relaxed">
-          <p class="mb-2">RiffQ's interactive practice studio tools (such as fretboard trainers, keyboard visualizers, and chord scale maps) require a minimum desktop or tablet screen resolution to display complex fretboards and notation clearly without crowding.</p>
-          <p class="mb-2">On smartphones, narrow viewports, or laptops running high Windows display scaling (e.g. 125% or 150% magnification which squashes the logical browser width), the app shifts into a streamlined companion mode to prioritize video looping and metronome controls.</p>
-          <p>If your laptop workstation triggers this lock unexpectedly, simply hit <kbd class="bg-slate-800 border border-slate-700 rounded px-1.5 py-0.5 text-[11px] font-mono text-slate-300">Ctrl</kbd> + <kbd class="bg-slate-800 border border-slate-700 rounded px-1.5 py-0.5 text-[11px] font-mono text-slate-300">-</kbd> to set your browser zoom to 80% or 90% for the full desktop studio layout.</p>
+          <p class="mb-2">If you can't see the interactive practice visuals (like fretboard trainers or keyboard visualizers), they haven't broken! They simply require a minimum desktop or tablet screen resolution to display complex notes clearly without crowding.</p>
+          <p class="mb-2">On smartphones, narrow screens, or laptops running high display scaling (e.g., 125% or 150% magnification), the app automatically shifts into a streamlined companion mode to prioritize the video looper and metronome controls.</p>
+          <p>If your laptop triggers this unexpectedly, simply hit <kbd class="bg-slate-800 border border-slate-700 rounded px-1.5 py-0.5 text-[11px] font-mono text-slate-300">Ctrl/Cmd</kbd> + <kbd class="bg-slate-800 border border-slate-700 rounded px-1.5 py-0.5 text-[11px] font-mono text-slate-300">-</kbd> to set your browser zoom to 80% or 90% to reveal the full visual studio layout.</p>
         </div>
       </div>
 
@@ -599,7 +599,14 @@
           <span class="text-xl font-black text-white tracking-tight">RiffQ</span>
         </div>
         <p class="text-slate-500 text-sm leading-relaxed">Built by a musician, for musicians.<br>The music practice workstation.</p>
-        <p class="text-slate-500 text-xs mt-3 leading-relaxed">Secure global payments and order management processed via Paddle.</p>
+        
+        <!-- Indie Developer Note -->
+        <div class="mt-4 pt-4 border-t border-slate-800/50 text-slate-400 text-xs leading-relaxed">
+          <strong class="text-slate-300 block mb-1">👋 Note from the developer:</strong>
+          I am a solo indie developer building and maintaining RiffQ. Updates and new features are pushed as fast as one person can code them, so thank you for your patience and support!
+        </div>
+        
+        <p class="text-slate-600 text-[10px] mt-4 leading-relaxed">Secure global payments and order management processed via Paddle.</p>
       </div>
       <div>
         <h4 class="text-white font-bold mb-4">System Requirements</h4>
