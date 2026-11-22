@@ -915,6 +915,7 @@
         alert('Payment system is still loading. Please try again in a moment.');
         return;
       }
+
       Paddle.Checkout.open({
         items: [{ priceId: priceId, quantity: 1 }],
         customData: {
@@ -924,8 +925,7 @@
         settings: {
           displayMode: 'overlay',
           theme: 'dark',
-          locale: 'en',
-          successUrl: 'https://web.riffq.app/?checkout=success'
+          locale: 'en'
         }
       });
     }
