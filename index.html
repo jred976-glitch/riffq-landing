@@ -62,6 +62,9 @@
     }
   </style>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="17b6f927-d15b-4796-b8ba-619569491623"></script>
+
+  <!-- Paddle Billing v2 -->
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 </head>
 <body class="bg-slate-950 text-slate-300 font-sans antialiased selection:bg-amber-500 selection:text-black">
 
@@ -356,7 +359,7 @@
               <li class="flex items-start gap-2"><span class="text-amber-500">⚠️</span> <strong class="text-amber-400">Local audio/video only (No YouTube)</strong></li>
             </ul>
           </div>
-          <a href="https://demo.riffq.app" class="w-full block text-center bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold py-2.5 rounded-xl transition shadow-md shadow-amber-500/20 text-sm">Get Desktop App</a>
+          <button type="button" onclick="openPaddleCheckout('YOUR_LIVE_DESKTOP_PRICE_ID', 'desktop')" class="w-full block text-center bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold py-2.5 rounded-xl transition shadow-md shadow-amber-500/20 text-sm cursor-pointer">Get Desktop App</button>
         </div>
 
         <!-- 3. Web Version Tier -->
@@ -383,7 +386,7 @@
               </p>
             </ul>
           </div>
-          <a href="https://demo.riffq.app" class="w-full block text-center bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold py-2.5 rounded-xl transition shadow-md shadow-amber-500/20 text-sm">Get Web Version</a>
+          <button type="button" onclick="openPaddleCheckout('YOUR_LIVE_WEB_PRICE_ID', 'web')" class="w-full block text-center bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold py-2.5 rounded-xl transition shadow-md shadow-amber-500/20 text-sm cursor-pointer">Get Web Version</button>
         </div>
 
         <!-- 4. All-Access Bundle -->
@@ -406,7 +409,7 @@
               <li class="flex items-start gap-2"><span>🚀</span> <strong>Includes all v1.x platform updates</strong></li>
             </ul>
           </div>
-          <a href="https://demo.riffq.app" class="w-full block text-center bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold py-2.5 rounded-xl transition shadow-md shadow-amber-500/20 text-sm">Get All-Access Bundle</a>
+          <button type="button" onclick="openPaddleCheckout('YOUR_LIVE_BUNDLE_PRICE_ID', 'bundle')" class="w-full block text-center bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold py-2.5 rounded-xl transition shadow-md shadow-amber-500/20 text-sm cursor-pointer">Get All-Access Bundle</button>
         </div>
 
       </div>
@@ -848,7 +851,7 @@
     </div>
   </div>
 
-  <!-- JavaScript for Modals & FAQ -->
+  <!-- JavaScript for Modals, FAQ & Paddle Checkout -->
   <script>
     // FAQ Accordion
     function toggleFaq(button) {
@@ -889,6 +892,58 @@
         });
       }
     });
+
+    // Paddle Billing Initialization (Live)
+    const PADDLE_CLIENT_TOKEN = 'live_YOUR_CLIENT_TOKEN_HERE';
+
+    if (typeof Paddle !== 'undefined') {
+      if (PADDLE_CLIENT_TOKEN.startsWith('test_')) {
+        Paddle.Environment.set('sandbox');
+      }
+      Paddle.Initialize({
+        token: PADDLE_CLIENT_TOKEN,
+        eventCallback: function(data) {
+          if (data.name === 'checkout.completed') {
+            console.log('Checkout completed:', data.data);
+          }
+        }
+      });
+    }
+
+    function openPaddleCheckout(priceId, planTier) {
+      if (typeof Paddle === 'undefined') {
+        alert('Payment system is still loading. Please try again in a moment.');
+        return;
+      }
+      Paddle.Checkout.open({
+        items: [{ priceId: priceId, quantity: 1 }],
+        customData: {
+          plan_tier: planTier,
+          source: 'landing_page'
+        },
+        settings: {
+          displayMode: 'overlay',
+          theme: 'dark',
+          locale: 'en',
+          successUrl: 'https://web.riffq.app/?checkout=success'
+        }
+      });
+    }
+
+    // Auto-open Legal Modals via URL Hash (#terms, #privacy, #refunds) for Paddle Verification
+    function checkLegalHash() {
+      const hashMap = {
+        '#terms': 'termsModal',
+        '#privacy': 'privacyModal',
+        '#refunds': 'refundModal'
+      };
+      const modalId = hashMap[window.location.hash];
+      if (modalId) {
+        openModal(modalId);
+      }
+    }
+    window.addEventListener('DOMContentLoaded', checkLegalHash);
+    window.addEventListener('hashchange', checkLegalHash);
   </script>
 
 </body>
